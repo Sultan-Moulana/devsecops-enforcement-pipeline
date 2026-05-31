@@ -22,6 +22,20 @@ The pipeline targets a purposely vulnerable Node.js web application (OWASP Juice
 7. **DAST Scan (OWASP ZAP):** Executes an active baseline spider and scan against the live container to identify runtime vulnerabilities (e.g., missing security headers, Cross-Origin misconfigurations). Extracts a comprehensive HTML security report for review.
 8. **Teardown & Archival:** Destroys the temporary staging environment and archives the ZAP security report as a build artifact in Jenkins.
 
+### Pipeline Execution & Quality Gate Enforcement
+
+**1. End-to-End Automated Pipeline**
+
+<img src="assets/Fully Automated DevSecOps Pipeline Execution.jpg" width="800">
+
+**2. SonarQube SAST Quality Gate (Blocking Vulnerable Code)**
+
+<img src="assets/SonarQube Static Analysis & Quality Gate Enforcement/SAST Quality Gate Check Pipeline Abortion.jpg" width="800">
+
+**3. Trivy SCA Container Scanning (Blocking Critical CVEs)**
+
+<img src="assets/Trivy Container Scanning & Critical CVE Blocking/Critical CVE Blocking.jpg" width="800">
+
 ## Business Value
 By implementing hard Quality Gates at both the static analysis and container scanning stages, this architecture prevents known vulnerabilities from being merged or deployed. It bridges the gap between development and security, reducing the organizational attack surface without compromising deployment velocity.
 
